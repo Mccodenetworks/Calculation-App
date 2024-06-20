@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new screen</title>
+    <script src="https://kit.fontawesome.com/41d51bfab0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="infor">
+       <h2> Calculation App</h2>
+       
+       <div class="work">
+        <button type="button"><img src="new.png" width="20px"  class="link" onclick="add()"></button>
+        <button type="button"><img src="minus.png" width="20px" class="link" onclick="sub()"></button>
+        <button type="button"><img src="error.png" width="20px" class="link" onclick="mult()"></button>
+        <button type="button"><img src="divide.png" width="20px" class="link" onclick="divid()"></button>
+
+       </div>
+
+       <div class="workspace">
+        <div class="input">
+            <input type="number" class="value1" placeholder="Enter value here" id="value1">
+            <h2 id="symbol"></h2>
+            <input type="number" class="value1" placeholder="Enter value here" id="value2">
+            <input type="number" class="value1" disabled id="result">
+            <button type="submit" class="btn" onclick="aciton()">Submit</button>
+            <button type="reset" class="btn" onclick="reset()">reset</button>
+            
+        </div>
+
+
+
+       </div>
+    </div>
+
+        
+    </div>
+
+    <script>
+        
+let symbol =  document.getElementById('symbol');
+
+
+let link = document.querySelectorAll('.link');
+
+link.forEach(link =>{
+    link.addEventListener('click',() =>{
+        document.querySelector('.active')?.classList.remove('active');
+        link.classList.add('active');
+    });
+});
+
+
+
+function add(){
+    symbol.innerHTML = "+";
+}
+
+function sub(){
+    symbol.innerHTML = "-";
+}
+
+function mult(){
+    symbol.innerHTML = "x";
+}
+
+function divid(){
+    symbol.innerHTML = "/";
+}
+
+
+
+function aciton(){  
+
+         if(symbol.innerHTML == "+"){
+
+            let value1 = Number(document.getElementById('value1').value);
+            let value2 = Number(document.getElementById('value2').value);
+            let result = value1 + value2;
+
+
+            document.getElementById('result').value = result;
+         }
+
+         else if(symbol.innerHTML == "-"){
+            let value1 = Number(document.getElementById('value1').value);
+            let value2 = Number(document.getElementById('value2').value);
+            let result = value1 - value2;
+            document.getElementById('result').value = result;
+
+         }
+
+         else if(symbol.innerHTML == "x"){
+            let value1 = Number(document.getElementById('value1').value);
+            let value2 = Number(document.getElementById('value2').value);
+            let result = value1 * value2;
+            document.getElementById('result').value = result;
+
+         }
+
+         else if(symbol.innerHTML == "/"){
+            let value1 = Number(document.getElementById('value1').value);
+            let value2 = Number(document.getElementById('value2').value);
+            let result = value1 / value2;
+            document.getElementById('result').value = result;
+
+         }
+
+}
+
+
+
+function reset(){
+
+    document.getElementById('value1').value = " ";
+    document.getElementById('value2').value = " ";
+    document.getElementById('result').value = " ";
+    symbol.innerHTML = " "
+  
+}
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
